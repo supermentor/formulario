@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="stripe"></div>
+    <h3>Sign up for our newsletter to receive news and specials!</h3>
+    <br>
+
+    <form class="form-horizontal" id="newsletterForm">
+        <!--Hidden Part - CSRF-->
+        <input type="hidden" name="_csrf" value="">
+
+        <!--Name-->
+        <div class="form-group">
+            <label for="fieldName" class="control-label">Name</label>
+            <input type="text" class="form-control"
+                id="fieldName" name="name" placeholder="type in your name...">
+        </div>
+
+        <!--Email-->
+        <div class="form-group">
+            <label for="fieldEmail" class="control-label">Email</label>
+            <input type="email" class="form-control" required
+                id="fieldName" name="email" placeholder="type in your email...">
+        </div>
+
+        <!--Photo-->
+        <input type="file" class="form-control" required accept="image/*"
+            id="fieldPhoto" name="photo">
+
+        <br>
+        <!--Submit-->
+        <div class="form-group">
+            <button id="submitFormButton" class="btn btn-primary">Register</button>
+        </div>
+    </form>
+</div>
+
+<script>
+        function submitNewsletter(){
+            $('#newsletterForm').ajaxForm({
+                dataType: 'json',
+                url: '/process?form=newsletter',
+                success: function(data){
+                    alert("Sucessfully subscribed, " + data.name + "!");
+                },
+                error: function(){
+                    alert("Something went wrong, try again!");
+                },
+                type: "POST"
+            });
+        }
+        $('#submitFormButton').on('click', submitNewsletter);
+</script>

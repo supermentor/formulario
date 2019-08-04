@@ -1,0 +1,30 @@
+body{
+    background: rgba(114,175,232,1);
+    background: -moz-linear-gradient(left, rgba(114,175,232,1) 0%, rgba(0,123,255,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(114,175,232,1)), color-stop(100%, rgba(0,123,255,1)));
+    background: -webkit-linear-gradient(left, rgba(114,175,232,1) 0%, rgba(0,123,255,1) 100%);
+    background: -o-linear-gradient(left, rgba(114,175,232,1) 0%, rgba(0,123,255,1) 100%);
+    background: -ms-linear-gradient(left, rgba(114,175,232,1) 0%, rgba(0,123,255,1) 100%);
+    background: linear-gradient(to right, rgba(114,175,232,1) 0%, rgba(0,123,255,1) 100%);
+    font-family: Montserrat !important;
+}
+div.container{
+    display: block;
+    width: 500px;
+    margin: 60px auto;
+    padding: 60px;
+    box-shadow: 0 1px 10px rgba(0,0,0,.1);
+    background-color: white;
+    border-radius: 10px;
+}
+h3{
+    font-weight: 700;
+}
+.stripe{
+    display: block;
+    width: 100px;
+    height: 7px;
+    background-color: #007bff;
+    margin: 20px 0;
+}
+
