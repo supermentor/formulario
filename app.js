@@ -17,6 +17,9 @@ app.set('port', process.env.PORT || 3000);
 //Static Files
 app.use(express.static(__dirname + '/public'));
 
+//Cookies
+app.use(require('cookie-parser')(credentials.cookieSecret));
+
 //Body Parser
 var bodyParser = require('body-parser');
 
@@ -35,7 +38,8 @@ app.post('/process', (req, res) => {
         console.log('CSRF token (from hidden form field): ' + req.body._csrf);
         console.log('Name (from visible form field): ' + req.body.name);
         console.log('Email (from visible form field): ' + req.body.email);
-        res.send({ success: true, name: req.body.name });
+        res.cookie('name', req.body.name, {signed: true});
+        res.send({ success: true, name: req.signedCookies.name });
     } else {
         // if there were an error, we would redirect to an error page
         
